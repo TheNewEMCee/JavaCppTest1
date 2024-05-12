@@ -2,6 +2,28 @@
 #include <fstream>
 #include <sstream>
 
+void enterDetector() {
+  std::string enterDetector = "";
+  do {
+    getline(std::cin, enterDetector);
+  } while (enterDetector.length() != 0);
+}
+
+int getInt() {
+ int realIn;
+    bool inputCompletionFlag = true;
+    do {
+    std::cin >> realIn;
+        if (std::cin.fail()) {
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+        } else {
+            inputCompletionFlag = false;
+        }
+    } while (!inputCompletionFlag);
+    return realIn;
+}
+
 int main() {
     //Confirm functioning build
     std::cout << "main.cpp runtime initialized" << std::endl;
@@ -38,7 +60,7 @@ int main() {
         std::cerr << "outFile Failed" << std::endl;
         exit(1);
     }
-    //Write thinToWrite0 to outFile
+    //Write thingToWrite0 to outFile
     std::cout << "input:" << std::endl;
     std::cin >> thingToWrite0;
     ioFile << thingToWrite0;
@@ -48,7 +70,7 @@ int main() {
     std::cin >> password;
     std::cout << "Now for the fruit showcase:" << std::endl;
     std::cout << "Which fruit would you like to see?" << std::endl;
-    std::cin >> fruitNumber;
+    fruitNumber = getInt();
     while(!inFile.eof()) {
         currentLine++;
         getline(inFile, line);
