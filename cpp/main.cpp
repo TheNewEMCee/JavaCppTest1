@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include "CInt.h"
 
 void enterDetector() {
     std::string enterDetector;
@@ -8,6 +9,10 @@ void enterDetector() {
         getline(std::cin, enterDetector);
     } while (!enterDetector.empty());
 }
+
+void updateInt(CInt)
+
+
 
 int getInt() {
     int realIn;
