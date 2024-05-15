@@ -1,0 +1,20 @@
+Step 1:
+
+
+Create classes for each data type called “CInt” (C++ int), “JString” (Java String), etc. Each class should (at least for C++, I’ll figure out Java later (or not, that’s technically Christine’s job)) have the following:
+Private:
+
+private:
+   std::string name;
+   int lineToReference;
+   int value;
+   std::ifstream inFile;
+   std::ofstream outFile;
+public:
+   CInt();
+   CInt(std::string name, int lineToReference, int value, std::ifstream inFile);
+   ~CInt();
+   void update();
+};
+
+fd

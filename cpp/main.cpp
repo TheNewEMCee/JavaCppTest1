@@ -11,13 +11,13 @@ void enterDetector() {
 
 int getInt() {
     int realIn;
-    bool inputCompletionFlag = true;
+    bool inputCompletionFlag = false;
     do {
         std::cin >> realIn;
         if (std::cin.fail()) {
             std::cin.clear();
         } else {
-            inputCompletionFlag = false;
+            inputCompletionFlag = true;
         }
     } while (!inputCompletionFlag);
     return realIn;
@@ -70,11 +70,20 @@ int main() {
     std::cout << "Now for the fruit showcase:" << std::endl;
     std::cout << "Which fruit would you like to see?" << std::endl;
     fruitNumber = getInt();
+    std::cout << fruitNumber;
     while(!inFile.eof()) {
         currentLine++;
         getline(inFile, line);
         if (currentLine == fruitNumber) {
             std::cout << line << std::endl;
+            break;
+        }
+    }
+    while(!ioFile.eof()) {
+        currentLine++;
+        getline(ioFile, line);
+        if (currentLine == fruitNumber) {
+            std::cout << "ioFile" << line << std::endl;
             break;
         }
     }

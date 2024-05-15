@@ -55,8 +55,8 @@ build CMakeFiles/JavaCppTest1.dir/cpp/main.cpp.obj: CXX_COMPILER__JavaCppTest1_u
   OBJECT_DIR = CMakeFiles\JavaCppTest1.dir
   OBJECT_FILE_DIR = CMakeFiles\JavaCppTest1.dir\cpp
 
-build CMakeFiles/JavaCppTest1.dir/cpp/cInt.cpp.obj: CXX_COMPILER__JavaCppTest1_unscanned_Debug P$:/GitHub/JavaCppTest1/cpp/cInt.cpp || cmake_object_order_depends_target_JavaCppTest1
-  DEP_FILE = CMakeFiles\JavaCppTest1.dir\cpp\cInt.cpp.obj.d
+build CMakeFiles/JavaCppTest1.dir/cpp/CInt.cpp.obj: CXX_COMPILER__JavaCppTest1_unscanned_Debug P$:/GitHub/JavaCppTest1/cpp/CInt.cpp || cmake_object_order_depends_target_JavaCppTest1
+  DEP_FILE = CMakeFiles\JavaCppTest1.dir\cpp\CInt.cpp.obj.d
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\JavaCppTest1.dir
   OBJECT_FILE_DIR = CMakeFiles\JavaCppTest1.dir\cpp
@@ -69,7 +69,7 @@ build CMakeFiles/JavaCppTest1.dir/cpp/cInt.cpp.obj: CXX_COMPILER__JavaCppTest1_u
 #############################################
 # Link the executable JavaCppTest1.exe
 
-build JavaCppTest1.exe: CXX_EXECUTABLE_LINKER__JavaCppTest1_Debug CMakeFiles/JavaCppTest1.dir/cpp/main.cpp.obj CMakeFiles/JavaCppTest1.dir/cpp/cInt.cpp.obj
+build JavaCppTest1.exe: CXX_EXECUTABLE_LINKER__JavaCppTest1_Debug CMakeFiles/JavaCppTest1.dir/cpp/main.cpp.obj CMakeFiles/JavaCppTest1.dir/cpp/CInt.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\JavaCppTest1.dir
