@@ -3,20 +3,19 @@
 #include <sstream>
 
 void enterDetector() {
-  std::string enterDetector = "";
-  do {
-    getline(std::cin, enterDetector);
-  } while (enterDetector.length() != 0);
+    std::string enterDetector;
+    do {
+        getline(std::cin, enterDetector);
+    } while (!enterDetector.empty());
 }
 
 int getInt() {
- int realIn;
+    int realIn;
     bool inputCompletionFlag = true;
     do {
-    std::cin >> realIn;
+        std::cin >> realIn;
         if (std::cin.fail()) {
             std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
         } else {
             inputCompletionFlag = false;
         }
