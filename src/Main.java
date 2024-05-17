@@ -22,11 +22,19 @@ public class Main {
         BufferedReader br = new BufferedReader(isr);
 
         String line;
+        /*one line:
+        line = br.readLine();
+        System.out.println(line);*/
+        /* ALL THE txt content:
         while((line = br.readLine()) != null){
             //process the line
             System.out.println(line);
+        }/* */
+        for(int x=0; x<2; x++){
+            br.readLine();
         }
+        line = br.readLine();
         br.close();
-
+        System.out.println(line);
     }
 }
