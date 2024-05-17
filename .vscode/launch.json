@@ -2,8 +2,13 @@
 
     "version": "0.2.0",
     "configurations": [
-
-
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "JavaCppTest1_b9ea1bd4"
+        },
         {
             "type": "cmake",
             "request": "launch",
@@ -11,8 +16,6 @@
             "cmakeDebugType": "script",
             "scriptPath": "${workspaceFolder}/cmake-build-debug/.cmake"
         },
-        
-
         {
             "type": "cmake",
             "request": "launch",
@@ -21,7 +24,5 @@
             "clean": false,
             "configureAll": false
         }
-        
-
     ]
 }
