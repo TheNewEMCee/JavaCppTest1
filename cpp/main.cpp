@@ -10,9 +10,9 @@ void enterDetector() {
     } while (!enterDetector.empty());
 }
 
-void updateInt(CInt)
+void updateInt(CInt cint) {
 
-
+}
 
 int getInt() {
     int realIn;
