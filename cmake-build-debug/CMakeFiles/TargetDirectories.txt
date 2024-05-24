@@ -1,0 +1,3 @@
+P:/GitHub/JavaCppTest1/cmake-build-debug/CMakeFiles/JavaCppTest1.dir
+P:/GitHub/JavaCppTest1/cmake-build-debug/CMakeFiles/edit_cache.dir
+P:/GitHub/JavaCppTest1/cmake-build-debug/CMakeFiles/rebuild_cache.dir

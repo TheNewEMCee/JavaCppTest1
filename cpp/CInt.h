@@ -8,20 +8,21 @@ class CInt {
 private:
     std::string name;
     std::string path;
-    int lineToReference;
+    int lineToReference{};
     int value;
-    std::ifstream inFile;
 public:
     CInt();
-    CInt(std::string name, std::string path, int lineToReference, int value, std::ifstream inFile);
+    CInt(std::string name, std::string path, int lineToReference, int value);
     ~CInt();
-    void updateAll();
     void updateValue();
     void setName(std::string n);
     void setPath(std::string p);
     void setLineToReference(int l);
     void setValue(int n);
-    void setInFile(std::ifstream infile);
+    std::string getName();
+    std::string getPath();
+    int getLineToReference();
+    int getValue();
 };
 
 

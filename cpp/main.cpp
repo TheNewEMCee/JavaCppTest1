@@ -1,17 +1,15 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <filesystem>
+#include <vector>
 #include "CInt.h"
-
+#include "CInt.cpp"
 void enterDetector() {
     std::string enterDetector;
     do {
         getline(std::cin, enterDetector);
     } while (!enterDetector.empty());
-}
-
-void updateInt(CInt cint) {
-
 }
 
 int getInt() {
@@ -31,76 +29,11 @@ int getInt() {
 int main() {
     //Confirm functioning build
     std::cout << "main.cpp runtime initialized" << std::endl;
-    //Init files
-    std::fstream ioFile;
-    std::ifstream inFile;
-    std::ofstream outFile;
-    ioFile.open("../text/ioFile.txt", std::ios::in | std::ios::out);
-    inFile.open("../text/inFile.txt");
-    outFile.open("../text/outFile.txt");
-    //Init vars
-    std::string thingToWrite0 = "Apples!";
-    std::string thingToRead0;
-    std::string passIn;
-    std::string password;
-    bool goOn = false;
-
-    std::string filename;
-    int lineNumber;
-    int fruitNumber;
-    int currentLine = 0;
-    std::string line;
-
-    //Failsafe for .txt files
-    if (ioFile.fail()) {
-        std::cerr << "ioFile Failed" << std::endl;
-        exit(1);
-    }
-    if (inFile.fail()) {
-        std::cerr << "inFile Failed" << std::endl;
-        exit(1);
-    }
-    if (outFile.fail()) {
-        std::cerr << "outFile Failed" << std::endl;
-        exit(1);
-    }
-    //Write thingToWrite0 to outFile
-    std::cout << "input:" << std::endl;
-    std::cin >> thingToWrite0;
-    ioFile << thingToWrite0;
-    outFile << thingToWrite0;
-    std::cout << "Now go look to see if it's there" << std::endl;
-    std::cout << "Enter Password: " << std::endl;
-    std::cin >> password;
-    std::cout << "Now for the fruit showcase:" << std::endl;
-    std::cout << "Which fruit would you like to see?" << std::endl;
-    fruitNumber = getInt();
-    std::cout << fruitNumber;
-    while(!inFile.eof()) {
-        currentLine++;
-        getline(inFile, line);
-        if (currentLine == fruitNumber) {
-            std::cout << line << std::endl;
-            break;
-        }
-    }
-    while(!ioFile.eof()) {
-        currentLine++;
-        getline(ioFile, line);
-        if (currentLine == fruitNumber) {
-            std::cout << "ioFile" << line << std::endl;
-            break;
-        }
-    }
-    while (!goOn) {
-        std::cin >> passIn;
-        if (passIn == password) {
-            goOn = true;
-        }
-    }
-    //Close files
-    ioFile.close();
-    inFile.close();
-    outFile.close();
+    //Try to see if CInt works... Hopefully!
+    CInt CInt1("CInt1", "../text/CInts.txt", 2, 6);
+    std::cout << "Hello!" << std::endl;
+    std::cout << "Name: " << CInt1.getName() << std::endl;
+    std::cout << "Stored at " << CInt1.getPath() << ", line " << CInt1.getLineToReference() << std::endl;
+    std::cout << "Value is set to  " << CInt1.getValue() << std::endl;
     return 0;
 }
