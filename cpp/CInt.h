@@ -8,7 +8,7 @@ class CInt {
 private:
     std::string name;
     std::string path;
-    int lineToReference{};
+    int lineToReference;
     int value;
 public:
     CInt();
