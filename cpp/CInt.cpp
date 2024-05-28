@@ -4,7 +4,9 @@
 
 #include "CInt.h"
 #include <fstream>
+#include <string>
 #include <utility>
+#include <vector>
 
 CInt::CInt() {
     this->name = "name";
@@ -17,19 +19,39 @@ CInt::CInt(std::string name, std::string path, int lineToReference, int value) {
     this->path = std::move(path);
     this->lineToReference = lineToReference;
     this->value = value;
-}
+    std::ifstream inFile;
+    inFile.open(path);
 
+    std::ofstream outFile;
+
+}
 CInt::~CInt() {
     std::cout << "CInt destroyed." << std::endl;
 }
 
-
 void CInt::updateValue() {
-    std::ifstream theFile;
-    theFile.open(path);
-    if (theFile.fail()) {
-        std::cerr << "Thingy Failed" << std::endl; 
+    std::ifstream inFile;
+    inFile.open(this->getPath());
+    if (inFile.fail()) {
+        std::cerr << "In Thingy Failed" << std::endl; 
     }
+    std::vector<std::string> lineArray;
+    int lineWeAreAt = 0;
+    while (!inFile.eof()) {
+        getline(inFile, lineArray[lineWeAreAt]);
+    }
+    setValue(std::stoi(lineArray[this->getLineToReference()]));
+    std::ofstream outFile;
+    outFile.open(this->getPath());
+    if (outFile.fail()) {
+        std::cerr << "Out Thingy Failed" << std::endl;
+    } else {
+    inFile.close();
+    }
+    for (int i = 0; i < lineArray.size(); i++) {
+        outFile << lineArray[i];
+    }
+    outFile.close();
 }
 
 void CInt::setName(std::string n) {
