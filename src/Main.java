@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
@@ -10,13 +11,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
         File file = new File("/Users/christineswann/Documents/GitHub/JavaCppTest1/text/Data1.txt");
 
-//Writning:
-            
-            FileWriter fr = new FileWriter(file, true);
-            BufferedWriter bw = new BufferedWriter(fr);
-            bw.write("Writing from the java file!!!!");
-            bw.close();
-//Reading:
+
+        //Reading:
         FileInputStream fis = new FileInputStream(file);
         InputStreamReader isr = new InputStreamReader(fis);
         BufferedReader br = new BufferedReader(isr);
@@ -34,7 +30,21 @@ public class Main {
             br.readLine();
         }
         line = br.readLine();
-        br.close();
         System.out.println(line);
+//Writning:
+            
+        FileWriter fr = new FileWriter(file, true);
+        BufferedWriter bw = new BufferedWriter(fr);
+        if((line = br.readLine()) != null || br.readLine() != ""){
+            bw.write("\n");
+        }
+        bw.write("Writing from the java file!");
+        PrintWriter pr = new PrintWriter(bw);
+        pr.println("data");
+        pr.close();
+        bw.close();
+        br.close();
+
+
     }
 }
