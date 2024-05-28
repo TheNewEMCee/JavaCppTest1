@@ -1,41 +1,47 @@
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 public class Main {
     public static void main(String[] args) throws IOException {
-        try {
+        File file = new File("/Users/christineswann/Documents/GitHub/JavaCppTest1/text/Data1.txt");
 
-            String filename = "Data1.txt";
-            String workingDirectory = System.getProperty("user.dir");
 
-            //****************//
+        //Reading:
+        String line2 = Files.readAllLines(Paths.get(file.getAbsolutePath())).get(2);
+        System.out.println(line2);
 
-            String absoluteFilePath = "";
+        
+        FileInputStream fis = new FileInputStream(file);
+        InputStreamReader isr = new InputStreamReader(fis);
+        BufferedReader br = new BufferedReader(isr);
 
-            //absoluteFilePath = workingDirectory + System.getProperty("file.separator") + filename;
-            absoluteFilePath = workingDirectory + File.separator + filename;
+        String line = br.readLine();
 
-            System.out.println("Final filepath : " + absoluteFilePath);
-
-            //****************//
-
-            File file = new File(absoluteFilePath);
-
-            if (file.createNewFile()) {
-                    System.out.println("File is created!");
-                } else {
-                    System.out.println("File is already existed!");
-                }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    //Writning:
+    
         FileWriter fr = new FileWriter(file, true);
-        BufferedWriter br = new BufferedWriter(fr);
-        br.write("Writing from the java file!!!!");
+        BufferedWriter bw = new BufferedWriter(fr);
+        if((line = br.readLine()) != null || br.readLine() != ""){
+            bw.newLine();
+        }
+        bw.write("Writing from the java file!");
+        PrintWriter pr = new PrintWriter(bw);
+        
+        pr.println("data");
+        
+        pr.close();
+        bw.close();
         br.close();
+
+
     }
 }
