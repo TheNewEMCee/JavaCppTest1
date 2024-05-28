@@ -15,27 +15,25 @@ public class Main {
         File file = new File("/Users/christineswann/Documents/GitHub/JavaCppTest1/text/Data1.txt");
 
 
-        //Reading:
-        String line2 = Files.readAllLines(Paths.get(file.getAbsolutePath())).get(2);
+    //Reading:
+        String line2 = Files.readAllLines(Paths.get(file.getAbsolutePath())).get(2); /*Read specific lines */
         System.out.println(line2);
 
-        
-        FileInputStream fis = new FileInputStream(file);
-        InputStreamReader isr = new InputStreamReader(fis);
-        BufferedReader br = new BufferedReader(isr);
-
-        String line = br.readLine();
 
     //Writning:
     
+        FileInputStream fis = new FileInputStream(file);
+        InputStreamReader isr = new InputStreamReader(fis);
+        BufferedReader br = new BufferedReader(isr);
+        String line = br.readLine();
         FileWriter fr = new FileWriter(file, true);
         BufferedWriter bw = new BufferedWriter(fr);
-        if((line = br.readLine()) != null || br.readLine() != ""){
-            bw.newLine();
-        }
-        bw.write("Writing from the java file!");
-        PrintWriter pr = new PrintWriter(bw);
         
+        if((line = br.readLine()) != null || br.readLine() != ""){bw.newLine();} /* ADding new lines */
+
+        String line4 = Files.readAllLines(Paths.get(file.getAbsolutePath())).get(4);
+        line4.trim();
+        PrintWriter pr = new PrintWriter(bw);
         pr.println("data");
         
         pr.close();
