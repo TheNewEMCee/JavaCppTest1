@@ -23,6 +23,7 @@ CInt::CInt(std::string name, std::string path, int lineToReference, int value) {
     inFile.open(path);
 
     std::ofstream outFile;
+    inFile.close();
 
 }
 CInt::~CInt() {
@@ -51,6 +52,7 @@ void CInt::updateValue() {
     for (int i = 0; i < lineArray.size(); i++) {
         outFile << lineArray[i];
     }
+    inFile.close();
     outFile.close();
 }
 
