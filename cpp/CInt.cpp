@@ -14,16 +14,40 @@ CInt::CInt() {
     this->value = 0;
 }
 
-CInt::CInt(std::string name, std::string path, int lineToReference, int value) {
+CInt::CInt(std::string name, std::string path, int lineToReference, int value, bool getTextValue) {
     this->name = std::move(name);
     this->path = std::move(path);
     this->lineToReference = lineToReference;
-    this->value = value;
+    if (!getTextValue) {
+        this->value = value;
+    }
     std::ifstream inFile;
     inFile.open(path);
-
+    if (inFile.fail()) {
+        std::cerr << "In Thingy Failed" << std::endl; 
+    }
+    std::vector<std::string> lineArray;
+    int lineWeAreAt = 0;
+    while (!inFile.eof()) {
+        getline(inFile, lineArray[lineWeAreAt]);
+    }
+    
     std::ofstream outFile;
+    outFile.open(this->getPath());
+    if (outFile.fail()) {
+        std::cerr << "Out Thingy Failed" << std::endl;
+    } else {
     inFile.close();
+    }
+    lineArray[lineToReference] = value;
+    for (int i = 0; i < lineArray.size(); i++) {
+        outFile << lineArray[i];
+    }
+    if (getTextValue) {
+        this->setValue(stoi(lineArray[lineToReference]));
+    }
+    inFile.close();
+    outFile.close();
 
 }
 CInt::~CInt() {
@@ -41,7 +65,7 @@ void CInt::updateValue() {
     while (!inFile.eof()) {
         getline(inFile, lineArray[lineWeAreAt]);
     }
-    setValue(std::stoi(lineArray[this->getLineToReference()]));
+    this->setValue(std::stoi(lineArray[this->getLineToReference()]));
     std::ofstream outFile;
     outFile.open(this->getPath());
     if (outFile.fail()) {

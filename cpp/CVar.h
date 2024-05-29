@@ -1,29 +1,26 @@
 #include <iostream>
 #include <fstream>
-#ifndef JAVACPPTEST1_CINT_H
-#define JAVACPPTEST1_CINT_H
+#ifndef JAVACPPTEST1_CVAR_H
+#define JAVACPPTEST1_CVAR_H
 
 
-class CInt {
+class CVar {
 private:
     std::string name;
     std::string path;
     int lineToReference;
-    int value;
 public:
-    CInt();
-    CInt(std::string name, std::string path, int lineToReference, int value, bool getTextValue = true);
-    ~CInt();
+    CVar();
+    CVar(std::string name, std::string path, int lineToReference);
+    ~CVar();
     void updateValue();
     void setName(std::string n);
     void setPath(std::string p);
     void setLineToReference(int l);
-    void setValue(int n);
     std::string getName();
     std::string getPath();
     int getLineToReference();
-    int getValue();
 };
 
 
-#endif //JAVACPPTEST1_CINT_H
+#endif //JAVACPPTEST1_CVAR_H
