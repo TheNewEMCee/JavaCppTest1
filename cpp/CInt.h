@@ -1,14 +1,12 @@
 #include <iostream>
 #include <fstream>
+#include "CVar.h"
 #ifndef JAVACPPTEST1_CINT_H
 #define JAVACPPTEST1_CINT_H
 
 
-class CInt {
+class CInt : public CVar{
 private:
-    std::string name;
-    std::string path;
-    int lineToReference;
     int value;
 public:
     CInt();

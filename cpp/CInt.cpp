@@ -3,6 +3,7 @@
 //
 
 #include "CInt.h"
+#include "CVar.h"
 #include <fstream>
 #include <string>
 #include <utility>
@@ -44,7 +45,7 @@ CInt::CInt(std::string name, std::string path, int lineToReference, int value, b
         outFile << lineArray[i];
     }
     if (getTextValue) {
-        this->setValue(stoi(lineArray[lineToReference]));
+        this->value = stoi(lineArray[lineToReference]);
     }
     inFile.close();
     outFile.close();

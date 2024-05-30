@@ -5,7 +5,7 @@
 
 
 class CVar {
-private:
+protected:
     std::string name;
     std::string path;
     int lineToReference;
