@@ -5,7 +5,7 @@
 #define JAVACPPTEST1_CINT_H
 
 
-class CInt : public CVar{
+class CInt : public CVar {
 private:
     int value;
 public:

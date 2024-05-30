@@ -35,6 +35,6 @@ int main() {
     std::cout << "Name: " << CInt1.getName() << std::endl;
     std::cout << "Stored at " << CInt1.getPath() << ", line " << CInt1.getLineToReference() << std::endl;
     std::cout << "Value is set to " << CInt1.getValue() << std::endl;
-    //CInt1.updateValue();
+    CInt1.updateValue();
     return 0;
 }
